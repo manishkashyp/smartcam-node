@@ -10,8 +10,8 @@ android {
         applicationId "in.luxture.smartcam"
         minSdk 23
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0-Native"
     }
 
     buildTypes {
@@ -26,7 +26,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/NOTICE', 'META-INF/INDEX.LIST']
+        }
+    }
 }
 
 dependencies {
+    // Embedded HTTP Server (Like IP Webcam port 8080)
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
 }
